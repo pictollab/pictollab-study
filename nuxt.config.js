@@ -38,6 +38,7 @@ module.exports = {
     '@nuxtjs/vuetify'
   ],
   router: {
+    base: 'https://pictollab.github.io/pictollab-study/',
     middleware: [
       'visits'
     ]
