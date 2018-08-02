@@ -14,7 +14,6 @@ module.exports = {
       }
     }
   },
-  buildDir: 'docs',
   css: [
     '~/assets/css/cssgram.css'
   ],
