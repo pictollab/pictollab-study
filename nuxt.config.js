@@ -14,6 +14,9 @@ module.exports = {
       }
     }
   },
+  generate: {
+    dir: 'docs'
+  },
   css: [
     '~/assets/css/cssgram.css'
   ],
