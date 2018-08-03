@@ -38,7 +38,7 @@ module.exports = {
     '@nuxtjs/vuetify'
   ],
   router: {
-    base: '/pictollab-study/',
+    base: `${ process.env.NODE_ENV === 'dev' ? '/' : '/pictollab-study/'}`,
     middleware: [
       'visits'
     ]
