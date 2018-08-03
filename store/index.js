@@ -1,4 +1,5 @@
 // import CircularBuffer from '~/assets/js/utils/CircularBuffer'
+import shortid from 'shortid'
 import AudioEngine from '~/assets/js/audio/base'
 
 export const state = () => ({
@@ -42,7 +43,7 @@ export const state = () => ({
       isMobile: false,
       OS: ''
     },
-    id: null
+    id: shortid.generate()
   }
 })
 
