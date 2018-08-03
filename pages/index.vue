@@ -4,53 +4,12 @@
       <v-flex>
         <v-card>
           <v-card-title primary-title>
-            <h2>About the Project</h2>
+            <h2>About this study</h2>
           </v-card-title>
           <v-card-text>
-            <p>Welcome to Pictollab, an application developed at Queen Mary, University of
-            London exploring the uses of a process called image sonification in everyday
-            creativity. You are invited to use the application for as little or as long as
-            you would like. If you choose not to take part, or stop taking part at any
-            point, there won't be any disadvantages for you and you will hear no more
-            about it.</p>
-            <p>Please read the following information carefully before you decide to take
-            part; this will tell you why the research is being done and what will be asked
-            of you if you choose to participate. It will also outline some rules you must
-            follow if you choose to take part in this research. If anything is not clear
-            or you would like more information, you may contact Andrew Thompson at
-            andrew.thompson@qmul.ac.uk.</p>
-            <hr/>
-            <p>We are investigating ways to enable people to be creative in their everyday
-            lives. To do this we have a developed this application, Pictollab, to take
-            images you make and sonify them – turn them into sound and music. All users of
-            the application will help to create a generate art piece that all users can
-            explore over the 24 hour study period. This piece will show off all the images
-            users have taken as well as being sonified itself.</p>
-            <p>Pictollab requires access to your devices camera and microphone to function
-            properly and you will be prompted to provide access to both on the following
-            page. Access can be revoked at any time through your browser and your
-            microphone and camera will not be used when the application is not running.</p>
-            <p>Pictollab uses the images you capture to create a generative art piece that
-            allows other users of the application to explore yours and others' photos.
-            After taking a photo you will be prompted to accept (green tick) or reject
-            (red cross) the image. If you accept the image will be securely uploaded to a
-            server and broadcast to all other users of the app. You do not have to accept
-            any image. Any images stored on the server will be destroyed after the 24 hour
-            study period has ended. The following image content is prohibited:</p>
-            <p>- Images depicting individuals or small groups of individuals; particularly
-            images of children or vulnerable groups.</p>
-            <p>- Images depicting violence.</p>
-            <p>- Images depicting pornographic content.</p>
-            <p>Pictollab is currently only open to current residents of the United Kingdom
-            that are also currently located in the United Kingdom.</p>
-            <p>Pictollab collects some information for research purposes. This includes
-            information about your mobile device and the browser you use, as well as
-            interaction data like the number of photos you have taken using the
-            application. None of this information is able to personally identify you,
-            however all participants are assigned a unique, random identifier.</p>
-            <p>It is entirely up to you if you chose to take part. You may save a copy of
-            this information sheet, as well as a digital copy of the ethics approval
-            letter here (link).</p>
+            <p>In this study you will be asked to test a mobile web application that turns images in to sound – a process called image sonification. We are interested in the creative potential image sonification has to allow anyone to create interesting sounds and music. By participating in this study you will be helping us develop our sound producing algorithm to enhance creativity and be easier to use.</p>
+            <p>After a brief period of familiarising yourself with the application, you will be given some simple tasks to complete that involve interacting with the app in order to give us an indication of how easy or difficult the it is to use. This will be followed by some short informal interview questions to gather your thoughts and understanding of the application. For completeness, you will be given some extra information on how the application works and then asked to complete the tasks again.</p>
+            <p>How long you take to complete each task will be recorded as well as any observations or comments you might make during each task. The informal interview will be audio recorded and later transcribed.</p>
           </v-card-text>
           <v-card-actions>
             <v-btn nuxt @click.native="accept">I Understand</v-btn>
