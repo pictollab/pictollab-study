@@ -21,6 +21,15 @@ export const state = () => ({
         photo: {
           captured: 0,
           uploaded: 0
+        },
+        filter: {
+          none: 1,
+          _1994: 0,
+          gingam: 0,
+          moon: 0,
+          nashville: 0,
+          valencia: 0,
+          total: 1
         }
       }
     },
@@ -51,6 +60,8 @@ export const mutations = {
   FEED_PUSH ({ feed }, data) { feed.push(data) },
   // --- Client event log
   LOG_TIMELINE_PUSH ({ log }, data) { log.timeline.push(Object.assign({ timestamp: Date.now() - log.stats.connectionTime }, data)) },
+  LOG_FILTER_CHANGE ({ log }) { log.stats.interactions.filter.total++ },
+  LOG_FILTER_INCR ({ log }, name) { log.stats.interactions.filter[name]++ }, 
   LOG_PAGE_VISIT ({ log }, page) { log.stats.pageVisits[page]++ },
   LOG_PHOTO_CAPTURE ({ log }) { log.stats.interactions.photo.captured++ },
   LOG_PHOTO_UPLOAD ({ log }) { log.stats.interactions.photo.uploaded++ },
@@ -60,45 +71,16 @@ export const mutations = {
 
 export const actions = {
   // --- Audio Engine actions
-  'audio/init' ({ dispatch}) {
-    AudioEngine.init()
-  },
-  'audio/blur' ({ dispatch }) {
-    if (AudioEngine.isActive())
-      AudioEngine.blur()
-  },
-  'audio/focus' ({ dispatch }) {
-    if (AudioEngine.isActive())
-      AudioEngine.focus()
-  },
-  'audio/pause' ({ dispatch }) {
-    if (AudioEngine.isActive())
-      AudioEngine.pause()
-  },
-  'audio/resume' ({ dispatch }) {
-    if (AudioEngine.isActive())
-      AudioEngine.resume()
-  },
-  'audio/nextPreset' ({ dispatch }) {
-    if (AudioEngine.isActive())
-      AudioEngine.nextPreset()
-  },
-  'audio/resetPreset' ({ dispatch }) {
-    if (AudioEngine.isActive())
-      AudioEngine.setPreset(0)
-  },
-  'audio/setPreset' ({ dispatch }, p) {
-    if (AudioEngine.isActive())
-      AudioEngine.setPreset(p)
-  },
-  'audio/prevPreset' ({ dispatch }) {
-    if (AudioEngine.isActive())
-      AudioEngine.prevPreset()
-  },
-  'audio/rgb' ({ dispatch }, rgb) {
-    if (AudioEngine.isActive())
-      AudioEngine.mapRGB(rgb)
-  },
+  'audio/init' ({ dispatch}) { AudioEngine.init() },
+  'audio/blur' ({ dispatch }) { if (AudioEngine.isActive()) AudioEngine.blur() },
+  'audio/focus' ({ dispatch }) { if (AudioEngine.isActive()) AudioEngine.focus() },
+  'audio/pause' ({ dispatch }) { if (AudioEngine.isActive()) AudioEngine.pause() },
+  'audio/resume' ({ dispatch }) { if (AudioEngine.isActive()) AudioEngine.resume() },
+  'audio/nextPreset' ({ dispatch }) { if (AudioEngine.isActive()) AudioEngine.nextPreset() },
+  'audio/resetPreset' ({ dispatch }) { if (AudioEngine.isActive()) AudioEngine.setPreset(0) },
+  'audio/setPreset' ({ dispatch }, p) { if (AudioEngine.isActive()) AudioEngine.setPreset(p) },
+  'audio/prevPreset' ({ dispatch }) { if (AudioEngine.isActive()) AudioEngine.prevPreset() },
+  'audio/rgb' ({ dispatch }, rgb) { if (AudioEngine.isActive()) AudioEngine.mapRGB(rgb) },
   // --- User actions
   'user/consent' ({ commit }) { commit('USER_CONSENT') },
   'user/setBrowser' ({ commit }, { name, version, mobile, os }) {
@@ -128,12 +110,16 @@ export const actions = {
         commit('LOG_TIMELINE_PUSH', event)
         break
       case 'upload':
-        console.log(data.img.preset)
         event = { type: 'upload', data: null, timestamp: { client: Date.now() - state.log.stats.connectionTime } }
         commit('LOG_PHOTO_UPLOAD')
         commit('LOG_TIMELINE_PUSH', event)
         commit('FEED_PUSH', data.img)
         break
+      case 'preset':
+        event = { type: 'preset', data: data.class || 'none', timestamp: { client: Date.now() - state.log.stats.connectionTime } }
+        commit('LOG_FILTER_CHANGE')
+        commit('LOG_FILTER_INCR', data.class)
+        commit('LOG_TIMELINE_PUSH', event)
     }
   }
 }
