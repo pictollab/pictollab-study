@@ -2941,6 +2941,13 @@ and limitations under the License.
  * @license MIT
  */
 
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
 /**
 	 *  Tone.js
 	 *  @author Yotam Mann
