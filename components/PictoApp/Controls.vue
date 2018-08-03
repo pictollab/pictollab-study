@@ -9,6 +9,9 @@
     <v-btn fab nuxt to="/feed" class="feed">
       <v-icon>photo_album</v-icon>
     </v-btn>
+    <v-btn fab class="data" nuxt to="/data">
+      <v-icon>bar_chart</v-icon>
+    </v-btn>
   </div>
 </template>
 
@@ -66,6 +69,15 @@ export default {
   position: absolute;
   left: 75vw; 
   right: 0;
+  margin-left: auto; 
+  margin-right: auto; 
+  bottom: 2.5%;
+}
+
+#picto-app-controls .data {
+  position: absolute;
+  left: 0; 
+  right: 75vw; 
   margin-left: auto; 
   margin-right: auto; 
   bottom: 2.5%;

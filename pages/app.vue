@@ -89,10 +89,12 @@ export default {
         case 'L':
           this.$store.commit('FILTER_NEXT')
           this.$store.dispatch('audio/nextPreset')
+          this.$store.dispatch('log/event', { type: 'preset', class: this.$store.getters.filter })
           break
         case 'R':
           this.$store.commit('FILTER_PREV')
           this.$store.dispatch('audio/prevPreset')
+          this.$store.dispatch('log/event', { type: 'preset', class: this.$store.getters.filter })
           break
       }
     }

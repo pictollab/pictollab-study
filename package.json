@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@nuxtjs/vuetify": "^0.4.2",
+    "axios": "^0.18.0",
     "browser-detect": "^0.2.28",
     "cross-env": "^5.2.0",
     "nuxt": "^1.0.0",
